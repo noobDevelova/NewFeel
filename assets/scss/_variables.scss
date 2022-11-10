@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700&display=swap");
+
+// Font Variable
+$jost: "Jost", sans-serif;
+
+// Font Weight Function
+@mixin font-weight($weight) {
+  $weights: (
+    thin: 100,
+    light: 300,
+    regular: 400,
+    medium: 500,
+    semibold: 600,
+    bold: 700,
+    black: 900,
+  );
+  $output: $weight;
+  @if map-has-key($weights, $weight) {
+    $output: map-get($weights, $weight);
+  }
+  font-weight: $output;
+}
+/*
+      Example:
+      instead of using: font-weight: 500;
+    
+      use:
+      @include font-weight(medium);
+    */
+
+/*--------------------*/
+
+// Color Variable
+
+$primary: #f2f4f7;
+$secondary: #f6b21b;
+$heading-hero: #e92c2c;
+$heading: #6041e6;
+$secondary-hover: #df9e0c;
+$card-bg: #eaecf0;
+$error20: #e92c2c;
+$headingSecondary: #7a5aff;
+
+// Button Master
+
+.btn-master {
+  background-color: $secondary;
+  border-radius: 5px;
+  color: $primary;
+  border: none;
+  @include font-weight(semibold);
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: $secondary-hover;
+    transition: all 0.2s;
+  }
+}
